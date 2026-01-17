@@ -1,9 +1,9 @@
-/**
- * @format
- */
+import { Navigation } from 'react-native-navigation';
+import { registerScreens } from './src/navigation/registerScreens';
+import { setBottomTabs } from './src/navigation/setRoot';
 
-import { AppRegistry } from 'react-native';
-import App from './App';
-import { name as appName } from './app.json';
+registerScreens();
 
-AppRegistry.registerComponent(appName, () => App);
+Navigation.events().registerAppLaunchedListener(() => {
+    setBottomTabs();
+});
